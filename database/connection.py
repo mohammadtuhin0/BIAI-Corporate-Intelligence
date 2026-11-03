@@ -4,35 +4,31 @@ import sqlite3
 from contextlib import contextmanager
 from pathlib import Path
 
+from config.settings import DATABASE_PATH
 
-# Project root
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-# Database location
-DB_PATH = BASE_DIR / "data" / "biai_crm.db"
 
 # SQL schema location
-SCHEMA_PATH = BASE_DIR / "database" / "schema.sql"
+BASE_DIR = DATABASE_PATH.parent.parent
+SCHEMA_PATH = (
+    Path(__file__).resolve().parent / "schema.sql"
+)
 
 
 @contextmanager
 def get_connection():
-    """
-    Provide a safe SQLite database connection.
-    """
+    """Provide a safe SQLite database connection."""
 
-    DB_PATH.parent.mkdir(
+    DATABASE_PATH.parent.mkdir(
         parents=True,
         exist_ok=True
     )
 
     connection = sqlite3.connect(
-        DB_PATH,
+        DATABASE_PATH,
         timeout=10
     )
 
     connection.row_factory = sqlite3.Row
-
     connection.execute("PRAGMA foreign_keys = ON")
 
     try:
@@ -48,9 +44,7 @@ def get_connection():
 
 
 def initialize_database():
-    """
-    Create database tables and indexes.
-    """
+    """Create database tables and indexes."""
 
     if not SCHEMA_PATH.exists():
         raise FileNotFoundError(
@@ -65,4 +59,4 @@ def initialize_database():
         connection.executescript(schema)
 
     print("Database initialized successfully!")
-    print(f"Database location: {DB_PATH}")
+    print(f"Database location: {DATABASE_PATH}")

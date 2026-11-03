@@ -4,6 +4,24 @@ import streamlit as st
 from services.lead_service import list_leads
 
 
+from database.connection import initialize_database
+from services.import_service import import_leads
+
+
+@st.cache_resource
+def bootstrap_database():
+    """Initialize database and import the CSV on first app startup."""
+    initialize_database()
+    return import_leads()
+
+
+try:
+    import_result = bootstrap_database()
+except Exception as error:
+    st.error(f"Database initialization failed: {error}")
+    st.stop()
+
+
 st.set_page_config(
     page_title="BIAI Corporate Intelligence",
     page_icon="📊",
