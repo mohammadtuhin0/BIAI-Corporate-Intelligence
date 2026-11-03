@@ -1,0 +1,27 @@
+lead_id,issue_type,severity,description,recommendation
+L06,missing_information,High,Missing contact phone.,Provide a valid contact phone.
+L24,missing_information,High,Missing contact name.,Provide a valid contact name.
+L24,missing_information,High,Missing contact role.,Provide a valid contact role.
+L24,missing_information,High,Missing contact email.,Provide a valid contact email.
+L18,email_manual_review,Medium,Lead notes indicate a possible email typo.,Verify the email address with the contact.
+L01,duplicate_company,High,"Potential duplicate company: padma textiles ltd. Related leads: ['L01', 'L23']",Review the company records before merging.
+L23,duplicate_company,High,"Potential duplicate company: padma textiles ltd. Related leads: ['L01', 'L23']",Review the company records before merging.
+L01,duplicate_contact,High,"Contact email appears in multiple leads: rafiq@padma-textiles.example. Related leads: ['L01', 'L23']",Review whether these records represent the same contact.
+L23,duplicate_contact,High,"Contact email appears in multiple leads: rafiq@padma-textiles.example. Related leads: ['L01', 'L23']",Review whether these records represent the same contact.
+L02,duplicate_contact,High,"Contact email appears in multiple leads: sultana@meghna-pharma.example. Related leads: ['L02', 'L03']",Review whether these records represent the same contact.
+L03,duplicate_contact,High,"Contact email appears in multiple leads: sultana@meghna-pharma.example. Related leads: ['L02', 'L03']",Review whether these records represent the same contact.
+L08,missing_followup,High,Next follow-up date is missing or invalid.,Schedule the next follow-up date.
+L09,missing_last_contact,Medium,Last contact date is missing or invalid.,Record the last contact date if known.
+L12,missing_followup,High,Next follow-up date is missing or invalid.,Schedule the next follow-up date.
+L16,missing_followup,High,Next follow-up date is missing or invalid.,Schedule the next follow-up date.
+L24,missing_last_contact,Medium,Last contact date is missing or invalid.,Record the last contact date if known.
+L25,invalid_date_sequence,High,Next follow-up is before last contact.,Correct the follow-up date.
+L04,overdue_followup,Medium,Follow-up date 2026-10-29 is before 2026-11-01.,Review the lead and update its follow-up.
+L06,overdue_followup,Medium,Follow-up date 2026-10-22 is before 2026-11-01.,Review the lead and update its follow-up.
+L10,overdue_followup,Medium,Follow-up date 2026-10-30 is before 2026-11-01.,Review the lead and update its follow-up.
+L13,overdue_followup,Medium,Follow-up date 2026-10-28 is before 2026-11-01.,Review the lead and update its follow-up.
+L15,overdue_followup,Medium,Follow-up date 2026-10-19 is before 2026-11-01.,Review the lead and update its follow-up.
+L19,overdue_followup,Medium,Follow-up date 2026-10-30 is before 2026-11-01.,Review the lead and update its follow-up.
+L20,overdue_followup,Medium,Follow-up date 2026-10-27 is before 2026-11-01.,Review the lead and update its follow-up.
+L22,overdue_followup,Medium,Follow-up date 2026-10-24 is before 2026-11-01.,Review the lead and update its follow-up.
+L25,overdue_followup,Medium,Follow-up date 2026-10-21 is before 2026-11-01.,Review the lead and update its follow-up.
