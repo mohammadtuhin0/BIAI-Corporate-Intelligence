@@ -38,7 +38,7 @@ def load_leads() -> pd.DataFrame:
             f"Dataset not found: {DATA_PATH}"
         )
 
-    df = pd.read_csv(DATA_PATH)
+    df = pd.read_csv(DATA_PATH, encoding="utf-8-sig")
 
     missing_columns = set(EXPECTED_COLUMNS) - set(df.columns)
 
